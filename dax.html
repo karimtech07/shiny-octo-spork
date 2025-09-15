@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Application Letter Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: flex;
+            padding: 0;
+        }
+        
+        .form-section {
+            flex: 1;
+            padding: 25px;
+            background: #f9f9f9;
+            border-right: 1px solid #eee;
+        }
+        
+        .preview-section {
+            flex: 1;
+            padding: 25px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin: 20px 0 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        .btn-secondary {
+            background: #2c3e50;
+        }
+        
+        .btn-secondary:hover {
+            background: #1a2530;
+        }
+        
+        .letter {
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        
+        .letter-header {
+            margin-bottom: 30px;
+        }
+        
+        .letter-content {
+            line-height: 1.8;
+        }
+        
+        .recipient-address {
+            margin-bottom: 30px;
+        }
+        
+        .sender-info {
+            text-align: right;
+            margin-bottom: 40px;
+        }
+        
+        .signature {
+            margin-top: 40px;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions {
+            background: #e8f4fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .action-buttons .btn {
+            width: auto;
+            flex: 1;
+        }
+        
+        .watermark-toggle {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .watermark-toggle input {
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .form-section {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Internship Application Letter Generator</h1>
+            <p class="subtitle">Create a professional application letter for UDSM ICT Department</p>
+        </header>
+        
+        <div class="content">
+            <div class="form-section">
+                <h2>Your Information</h2>
+                
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>Fill in your details below. The letter will update automatically. Click "Generate Letter" when you're ready to download.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" value="ABDULKARIM KHAMIS NASSOR">
+                </div>
+                
+                <div class="form-group">
+                    <label for="yourAddress">Your Address:</label>
+                    <input type="text" id="yourAddress" placeholder="Street address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="yourCityStateZip">City, State, ZIP:</label>
+                    <input type="text" id="yourCityStateZip" placeholder="City, State, ZIP Code">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" value="Karimabdul.anzuan.07@gmail.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" value="0773999054">
+                </div>
+                
+                <h3>Recipient Information</h3>
+                
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="text" id="date" placeholder="e.g., September 15, 2023">
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipientName">Recipient's Name:</label>
+                    <input type="text" id="recipientName" placeholder="Full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipientTitle">Recipient's Title:</label>
+                    <input type="text" id="recipientTitle" placeholder="Job title">
+                </div>
+                
+                <div class="form-group">
+                    <label for="companyName">Company/Organization:</label>
+                    <input type="text" id="companyName" value="UDSM">
+                </div>
+                
+                <div class="form-group">
+                    <label for="companyAddress">Company Address:</label>
+                    <input type="text" id="companyAddress" placeholder="Street address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cityStateZip">City, State, ZIP:</label>
+                    <input type="text" id="cityStateZip" placeholder="City, State, ZIP Code">
+                </div>
+                
+                <div class="watermark-toggle">
+                    <input type="checkbox" id="watermarkToggle" checked>
+                    <label for="watermarkToggle">Include watermark in generated document</label>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn" onclick="generateDoc()">Generate Letter</button>
+                    <button class="btn btn-secondary" onclick="printLetter()">Print Letter</button>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <h2>Letter Preview</h2>
+                <div class="letter">
+                    <div id="watermark" class="watermark"></div>
+                    <div class="letter-content">
+                        <div class="date-field">
+                            <p id="previewDate">[Date]</p>
+                        </div>
+                        
+                        <div class="recipient-address">
+                            <p id="previewRecipientName">[Recipient's Name]</p>
+                            <p id="previewRecipientTitle">[Recipient's Title]</p>
+                            <p id="previewCompanyName">[Company/Organization]</p>
+                            <p id="previewCompanyAddress">[Company Address]</p>
+                            <p id="previewCityStateZip">[City, State, ZIP]</p>
+                        </div>
+                        
+                        <div class="sender-info">
+                            <p id="previewFullName">ABDULKARIM KHAMIS NASSOR</p>
+                            <p id="previewYourAddress">[Your Address]</p>
+                            <p id="previewYourCityStateZip">[City, State, ZIP]</p>
+                            <p id="previewEmail">Karimabdul.anzuan.07@gmail.com</p>
+                            <p id="previewPhone">0773999054</p>
+                        </div>
+                        
+                        <p>Dear <span id="previewDearName">[Recipient's Name]</span>,</p>
+                        
+                        <p>I am writing this letter to express my interest in an internship opportunity in the ICT department at UDSM. As an undergraduate student studying Bachelor of IT with Accounting at State University of Zanzibar (SUZA), I am eager to apply theoretical knowledge in a practical setting.</p>
+                        
+                        <p>I am particularly drawn to UDSM because of its reputation, projects, and initiatives that resonate with me. This internship would provide invaluable hands-on experience and exposure to software development, network administration, and cybersecurity.</p>
+                        
+                        <p>During my internship, I aim to:</p>
+                        <ul>
+                            <li>Gain practical experience in ICT projects and technologies.</li>
+                            <li>Develop my problem-solving and teamwork skills.</li>
+                            <li>Contribute to projects and support the team with enthusiasm and dedication.</li>
+                        </ul>
+                        
+                        <p>I have attached my resume and a cover letter outlining my relevant skills and experiences. I would be thrilled to discuss this opportunity further and learn more about your team's work.</p>
+                        
+                        <p>Thank you for considering my application. I look forward to the possibility of contributing to and learning from <span id="previewCompanyName2">[Company/Organization]</span>.</p>
+                        
+                        <p class="signature">Sincerely,<br>
+                        <span id="previewSignature">ABDULKARIM KHAMIS NASSOR</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set current date as default
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+        document.getElementById('date').value = formattedDate;
+
+        // Function to update the preview as user types
+        function updatePreview() {
+            // Get values from form fields
+            const fullName = document.getElementById('fullName').value || '[Your Full Name]';
+            const yourAddress = document.getElementById('yourAddress').value || '[Your Address]';
+            const yourCityStateZip = document.getElementById('yourCityStateZip').value || '[City, State, ZIP]';
+            const email = document.getElementById('email').value || '[Your Email]';
+            const phone = document.getElementById('phone').value || '[Your Phone]';
+            const recipientName = document.getElementById('recipientName').value || '[Recipient\'s Name]';
+            const recipientTitle = document.getElementById('recipientTitle').value || '[Recipient\'s Title]';
+            const companyName = document.getElementById('companyName').value || '[Company/Organization]';
+            const companyAddress = document.getElementById('companyAddress').value || '[Company Address]';
+            const cityStateZip = document.getElementById('cityStateZip').value || '[City, State, ZIP]';
+            const date = document.getElementById('date').value || '[Date]';
+            
+            // Update preview elements
+            document.getElementById('previewFullName').textContent = fullName;
+            document.getElementById('previewYourAddress').textContent = yourAddress;
+            document.getElementById('previewYourCityStateZip').textContent = yourCityStateZip;
+            document.getElementById('previewEmail').textContent = email;
+            document.getElementById('previewPhone').textContent = phone;
+            document.getElementById('previewRecipientName').textContent = recipientName;
+            document.getElementById('previewRecipientTitle').textContent = recipientTitle;
+            document.getElementById('previewCompanyName').textContent = companyName;
+            document.getElementById('previewCompanyAddress').textContent = companyAddress;
+            document.getElementById('previewCityStateZip').textContent = cityStateZip;
+            document.getElementById('previewCompanyName2').textContent = companyName;
+            document.getElementById('previewDate').textContent = date;
+            document.getElementById('previewDearName').textContent = recipientName;
+            document.getElementById('previewSignature').textContent = fullName;
+            // Update watermark text
+            const watermark = document.getElementById('watermark');
+            watermark.textContent = document.getElementById('watermarkToggle').checked ? fullName.toUpperCase() + ' APPLICATION' : '';
+            watermark.style.display = document.getElementById('watermarkToggle').checked ? 'block' : 'none';
+        }
+
+        // Watermark toggle event
+        document.getElementById('watermarkToggle').addEventListener('change', updatePreview);
+
+        // Add event listeners to update preview as user types
+        const allInputs = document.querySelectorAll('input');
+        allInputs.forEach(input => {
+            input.addEventListener('input', updatePreview);
+        });
+
+        // Function to generate and download the DOC file
+        function generateDoc() {
+            // Get values from form fields
+            const fullName = document.getElementById('fullName').value || '[Your Full Name]';
+            const yourAddress = document.getElementById('yourAddress').value || '[Your Address]';
+            const yourCityStateZip = document.getElementById('yourCityStateZip').value || '[City, State, ZIP]';
+            const email = document.getElementById('email').value || '[Your Email]';
+            const phone = document.getElementById('phone').value || '[Your Phone]';
+            const recipientName = document.getElementById('recipientName').value || '[Recipient\'s Name]';
+            const recipientTitle = document.getElementById('recipientTitle').value || '[Recipient\'s Title]';
+            const companyName = document.getElementById('companyName').value || '[Company/Organization]';
+            const companyAddress = document.getElementById('companyAddress').value || '[Company Address]';
+            const cityStateZip = document.getElementById('cityStateZip').value || '[City, State, ZIP]';
+            const date = document.getElementById('date').value || '[Date]';
+            const showWatermark = document.getElementById('watermarkToggle').checked;
+            const watermarkStyle = showWatermark ? `
+                .watermark {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(-30deg);
+                    font-size: 7rem;
+                    font-weight: bold;
+                    color: rgba(52, 152, 219, 0.10);
+                    z-index: 0;
+                    pointer-events: none;
+                    user-select: none;
+                    white-space: nowrap;
+                    letter-spacing: 0.2em;
+                }
+                .letter-content { position: relative; z-index: 1; }
+                .letter { position: relative; }
+            ` : '.watermark { display: none; }';
+
+            const content = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <style>
+                        body { 
+                            font-family: Arial, sans-serif; 
+                            line-height: 1.6;
+                            margin: 0;
+                            padding: 20px;
+                            position: relative;
+                        }
+                        .recipient-address {
+                            margin-bottom: 40px;
+                        }
+                        .sender-info {
+                            text-align: right;
+                            margin-bottom: 40px;
+                        }
+                        ul {
+                            margin: 15px 0;
+                            padding-left: 20px;
+                        }
+                        li {
+                            margin-bottom: 8px;
+                        }
+                        .signature {
+                            margin-top: 40px;
+                        }
+                        .letter { position: relative; }
+                        .letter-content { position: relative; z-index: 2; }
+                        ${watermarkStyle}
+                    </style>
+                </head>
+                <body>
+                    <div class="letter">
+                        ${showWatermark ? `<div class="watermark">${fullName.toUpperCase()} APPLICATION</div>` : ''}
+                        <div class="letter-content">
+                            <p>${date}</p>
+                            <div class="recipient-address">
+                                <p>${recipientName}</p>
+                                <p>${recipientTitle}</p>
+                                <p>${companyName}</p>
+                                <p>${companyAddress}</p>
+                                <p>${cityStateZip}</p>
+                            </div>
+                            <div class="sender-info">
+                                <p>${fullName}</p>
+                                <p>${yourAddress}</p>
+                                <p>${yourCityStateZip}</p>
+                                <p>${email}</p>
+                                <p>${phone}</p>
+                            </div>
+                            <p>Dear ${recipientName},</p>
+                            <p>I am writing this letter to express my interest in an internship opportunity in the ICT department at UDSM. As an undergraduate student studying Bachelor of IT with Accounting at State University of Zanzibar (SUZA), I am eager to apply theoretical knowledge in a practical setting.</p>
+                            <p>I am particularly drawn to UDSM because of its reputation, projects, and initiatives that resonate with me. This internship would provide invaluable hands-on experience and exposure to software development, network administration, and cybersecurity.</p>
+                            <p>During my internship, I aim to:</p>
+                            <ul>
+                                <li>Gain practical experience in ICT projects and technologies.</li>
+                                <li>Develop my problem-solving and teamwork skills.</li>
+                                <li>Contribute to projects and support the team with enthusiasm and dedication.</li>
+                            </ul>
+                            <p>I have attached my resume and a cover letter outlining my relevant skills and experiences. I would be thrilled to discuss this opportunity further and learn more about your team's work.</p>
+                            <p>Thank you for considering my application. I look forward to the possibility of contributing to and learning from ${companyName}.</p>
+                            <p class="signature">Sincerely,<br>${fullName}</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            const blob = new Blob([content], { type: 'application/msword' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Internship_Application_Letter.doc';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Print Letter function
+        function printLetter() {
+            const preview = document.querySelector('.letter').outerHTML;
+            const style = document.head.querySelector('style').outerHTML;
+            const win = window.open('', '', 'width=900,height=900');
+            win.document.write(`
+                <html>
+                <head>
+                    <title>Print Letter</title>
+                    ${style}
+                </head>
+                <body>${preview}</body>
+                </html>
+            `);
+            win.document.close();
+            win.focus();
+            win.print();
+        }
+
+        // Initialize the preview
+        updatePreview();
+    </script>
+</body>
+</html>
